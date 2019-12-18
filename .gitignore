@@ -1,1 +1,4 @@
 /target/
+/src/main/resource/driver/chrome/chromeconfig.zip
+/src/main/resource/driver/chrome/chromedriver.exe
+/src/main/resource/driver/gecko/geckodriver.exe
