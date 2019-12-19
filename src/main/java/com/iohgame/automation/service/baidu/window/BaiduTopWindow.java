@@ -11,10 +11,10 @@ public class BaiduTopWindow extends BaseWindow
 {
     public BaiduTopWindow()
     {
-        //@formatter:off
+        // @formatter:off
         m_elementMap.put(BaiduTopElement.SEARCH_KEYWORD,    ".//input[@name='wd']");
         m_elementMap.put(BaiduTopElement.SEARCH_BUTTON,     ".//input[@id='su']");
-        //@formatter:on
+        // @formatter:on
     }
 
     public enum BaiduTopElement implements PageElement

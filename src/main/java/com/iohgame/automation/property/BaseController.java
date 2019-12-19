@@ -11,12 +11,13 @@ import org.openqa.selenium.WebElement;
 
 import com.iohgame.automation.property.parameters.ByType;
 import com.iohgame.automation.property.parameters.HtmlAttributes;
+import com.iohgame.automation.property.parameters.PageController;
 import com.iohgame.automation.property.parameters.PageWindow;
 import com.iohgame.automation.property.parameters.PageElement;
 import com.iohgame.framework.utility.MainClass;
 import com.iohgame.framework.utility.Utility;
 
-public abstract class BaseController<W extends PageWindow> extends MainClass
+public abstract class BaseController<W extends PageWindow> extends MainClass implements PageController
 {
     private LaunchBrowser m_driver;
     private W m_window;
