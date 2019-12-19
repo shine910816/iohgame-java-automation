@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -221,6 +222,39 @@ public abstract class BaseController<W extends PageWindow> extends MainClass imp
     protected boolean write(PageElement element, String context)
     {
         return write(element, context, true);
+    }
+
+    protected boolean writeTag(SearchContext element, String context)
+    {
+        if (element == null)
+        {
+            return false;
+        }
+        ((WebElement) element).sendKeys(context);
+        ((WebElement) element).sendKeys(Keys.ENTER);
+        return true;
+    }
+
+    protected boolean writeTag(PageElement element, String context)
+    {
+        return writeTag(getElement(element), context);
+    }
+
+    protected boolean writePulldown(SearchContext element, String context)
+    {
+        if (element == null)
+        {
+            return false;
+        }
+        ((WebElement) element).sendKeys(Keys.BACK_SPACE);
+        ((WebElement) element).sendKeys(context);
+        ((WebElement) element).sendKeys(Keys.ENTER);
+        return true;
+    }
+
+    protected boolean writePulldown(PageElement element, String context)
+    {
+        return writePulldown(getElement(element), context);
     }
 
     private By getBy(PageElement element)

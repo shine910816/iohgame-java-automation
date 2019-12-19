@@ -3,7 +3,9 @@ package com.iohgame.automation.service;
 import com.iohgame.automation.property.LaunchBrowser;
 import com.iohgame.automation.property.parameters.PageController;
 import com.iohgame.automation.property.parameters.ServicePages;
+import com.iohgame.automation.service.jira.CreateIssueController;
 import com.iohgame.automation.service.jira.JiraLoginController;
+import com.iohgame.automation.service.jira.window.CreateIssueWindow;
 import com.iohgame.automation.service.jira.window.JiraLoginWindow;
 import com.iohgame.framework.utility.Request;
 import com.iohgame.framework.utility.ServiceFactory;
@@ -27,6 +29,10 @@ public class AutomationFactory extends ServiceFactory
         {
             case JIRA_LOGIN:
                 ctrl = new JiraLoginController(m_driver, new JiraLoginWindow());
+                break;
+
+            case JIRA_CREATE:
+                ctrl = new CreateIssueController(m_driver, new CreateIssueWindow());
                 break;
 
             default:

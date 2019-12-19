@@ -26,6 +26,7 @@ public class AutomationCollection extends MainClass
             case JIRA_LOGIN:
                 controller = (Optionable) m_factory.getController(page);
                 break;
+
             default:
                 LOG.error("Controller is not found: " + page);
                 return false;
@@ -49,6 +50,11 @@ public class AutomationCollection extends MainClass
             case JIRA_LOGIN:
                 controller = (Inputable) m_factory.getController(page);
                 break;
+
+            case JIRA_CREATE:
+                controller = (Inputable) m_factory.getController(page);
+                break;
+
             default:
                 LOG.error("Controller is not found: " + page);
                 return false;

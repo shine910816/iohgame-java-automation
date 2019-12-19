@@ -24,6 +24,7 @@ public class App extends MainClass
         m_collection.turnPage(ServicePages.JIRA_LOGIN, JiraPageIndex.LOGIN);
         m_collection.write(ServicePages.JIRA_LOGIN);
         m_collection.turnPage(ServicePages.JIRA_LOGIN, JiraPageIndex.CREATE);
+        m_collection.write(ServicePages.JIRA_CREATE);
     }
 
     public static void main(String[] args)
