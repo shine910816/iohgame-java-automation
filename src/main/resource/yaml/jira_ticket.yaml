@@ -1,41 +1,6 @@
-#summary: "[Game][Andriod][Chromecast]キャスト中Sender側はBGMを再生できる"
-labels: qa-server,Chromecast
-description: "お世話になっております。大宇宙の王 利春です。
-
-■現象
--
-
-■対象画面
--
-
-■再現手順
--
-
-■期待値
--
-
-■参考資料
--
-
-■テストデータ
--
-
-■対象テストケース/確認項目
--
-
-■Screenshots
--
-
-■環境
--
-
-■再現率
-100%
-
-■発生日時
--
-
-■備考
-特に無し
-
-以上、よろしくお願い致します。"
+summary: "[API][Community]自動スレッドはタグ｢NBA全般｣を自動的に紐付ける"
+description:
+  actual: "自動スレッドはタグ｢NBA全般｣を自動的に紐付ける"
+  target: "スレッド詳細画面"
+  except: "自動スレッドは｢NBA全般｣を自動的に紐付けない"
+labels: product

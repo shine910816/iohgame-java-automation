@@ -18,12 +18,6 @@ public class CreateIssueController extends DataController<CreateIssueWindow, Jir
     @Override
     public boolean setParameters()
     {
-        if (!setBasic())
-        {
-            LOG.error("Set basic failed");
-            return false;
-        }
-
         if (!setDevelopment())
         {
             LOG.error("Set development failed");
@@ -33,6 +27,12 @@ public class CreateIssueController extends DataController<CreateIssueWindow, Jir
         if (!setAdditional())
         {
             LOG.error("Set additional failed");
+            return false;
+        }
+
+        if (!setBasic())
+        {
+            LOG.error("Set basic failed");
             return false;
         }
 
@@ -66,39 +66,39 @@ public class CreateIssueController extends DataController<CreateIssueWindow, Jir
 
         if (!write(CreateIssueElement.SUMMARY_FIELD, connect().getContent().summary()))
         {
-            LOG.error("Write cc failed");
+            LOG.error("Write summary failed");
             return false;
         }
 
         if (!writePulldown(CreateIssueElement.PRIORITY_FIELD, connect().getContent().priority()))
         {
-            LOG.error("Write cc failed");
+            LOG.error("Write priority failed");
             return false;
         }
 
         if (!writeTag(CreateIssueElement.COMPONENTS_FIELD, connect().getContent().components()))
         {
-            LOG.error("Write cc failed");
+            LOG.error("Write component failed");
             return false;
         }
 
         if (!writePulldown(CreateIssueElement.ASSIGNEE_FIELD, connect().getContent().assignee()))
         {
-            LOG.error("Write cc failed");
+            LOG.error("Write assignee failed");
             return false;
         }
 
         if (!writeTextarea(CreateIssueElement.DESCRIPTION_TEXTAREA, connect().getContent().description()))
         {
-            LOG.error("Write cc failed");
+            LOG.error("Write description failed");
             return false;
         }
 
         for (JiraTicketLabels label : connect().getContent().labels())
         {
-            if (!writeTag(CreateIssueElement.LABELS_FIELD, label.val()))
+            if (!label.equals(JiraTicketLabels.UNKNOWN) && !writeTag(CreateIssueElement.LABELS_FIELD, label.val()))
             {
-                LOG.error("Write cc failed");
+                LOG.error("Write label failed");
                 return false;
             }
         }
@@ -118,7 +118,7 @@ public class CreateIssueController extends DataController<CreateIssueWindow, Jir
 
         if (!writeTag(CreateIssueElement.FIX_VERSIONS_FIELD, connect().getContent().fixVersions()))
         {
-            LOG.error("Write cc failed");
+            LOG.error("Write fix versions failed");
             return false;
         }
 
