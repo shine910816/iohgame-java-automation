@@ -1,18 +1,19 @@
 package com.iohgame.automation.service.jira;
 
-import com.iohgame.automation.property.BaseController;
+import com.iohgame.automation.property.DataController;
 import com.iohgame.automation.property.LaunchBrowser;
 import com.iohgame.automation.property.parameters.motion.Inputable;
 import com.iohgame.automation.property.parameters.motion.simple.Optionable;
 import com.iohgame.automation.service.jira.window.JiraLoginWindow;
 import com.iohgame.automation.service.jira.window.JiraLoginWindow.JiraLoginElement;
 import com.iohgame.framework.utility.parameters.property.OptionElement;
+import com.iohgame.service.jira.JiraTicketAnalysis;
 
-public class JiraLoginController extends BaseController<JiraLoginWindow> implements Optionable, Inputable
+public class JiraLoginController extends DataController<JiraLoginWindow, JiraTicketAnalysis> implements Optionable, Inputable
 {
-    public JiraLoginController(LaunchBrowser driver, JiraLoginWindow window)
+    public JiraLoginController(LaunchBrowser driver, JiraLoginWindow window, JiraTicketAnalysis connect)
     {
-        super(driver, window);
+        super(driver, window, connect);
     }
 
     @Override
