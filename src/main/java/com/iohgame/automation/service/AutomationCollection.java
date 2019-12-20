@@ -51,6 +51,10 @@ public class AutomationCollection extends MainClass
                 controller = (Inputable) m_factory.getController(page);
                 break;
 
+            case JIRA_CREATE_DEFAULT:
+                controller = (Inputable) m_factory.getController(page);
+                break;
+
             case JIRA_CREATE:
                 controller = (Inputable) m_factory.getController(page);
                 break;

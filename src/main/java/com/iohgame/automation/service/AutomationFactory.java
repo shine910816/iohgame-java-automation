@@ -3,9 +3,11 @@ package com.iohgame.automation.service;
 import com.iohgame.automation.property.LaunchBrowser;
 import com.iohgame.automation.property.parameters.PageController;
 import com.iohgame.automation.property.parameters.ServicePages;
+import com.iohgame.automation.service.jira.CreateIssueController;
 import com.iohgame.automation.service.jira.CreateIssueDefaultController;
 import com.iohgame.automation.service.jira.JiraLoginController;
 import com.iohgame.automation.service.jira.window.CreateIssueDefaultWindow;
+import com.iohgame.automation.service.jira.window.CreateIssueWindow;
 import com.iohgame.automation.service.jira.window.JiraLoginWindow;
 import com.iohgame.framework.connect.base.ConnectBase;
 import com.iohgame.framework.utility.Request;
@@ -33,6 +35,7 @@ public class AutomationFactory extends ServiceFactory
         switch ((ServicePages) page)
         {
             case JIRA_LOGIN:
+            case JIRA_CREATE_DEFAULT:
             case JIRA_CREATE:
                 data = new JiraTicketAnalysis(YamlLoader.getInstance().analysis("jira_ticket", JiraTicketYamlColumns.class));
                 break;
@@ -48,8 +51,12 @@ public class AutomationFactory extends ServiceFactory
                 ctrl = new JiraLoginController(m_driver, new JiraLoginWindow(), (JiraTicketAnalysis) data);
                 break;
 
-            case JIRA_CREATE:
+            case JIRA_CREATE_DEFAULT:
                 ctrl = new CreateIssueDefaultController(m_driver, new CreateIssueDefaultWindow(), (JiraTicketAnalysis) data);
+                break;
+
+            case JIRA_CREATE:
+                ctrl = new CreateIssueController(m_driver, new CreateIssueWindow(), (JiraTicketAnalysis) data);
                 break;
 
             default:

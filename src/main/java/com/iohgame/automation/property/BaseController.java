@@ -224,6 +224,23 @@ public abstract class BaseController<W extends PageWindow> extends MainClass imp
         return write(element, context, true);
     }
 
+    protected boolean writeTextarea(SearchContext element, String context)
+    {
+        if (element == null)
+        {
+            return false;
+        }
+        ((WebElement) element).sendKeys(Keys.TAB);
+        ((WebElement) element).clear();
+        ((WebElement) element).sendKeys(context);
+        return true;
+    }
+
+    protected boolean writeTextarea(PageElement element, String context)
+    {
+        return writeTextarea(getElement(element), context);
+    }
+
     protected boolean writeTag(SearchContext element, String context)
     {
         if (element == null)

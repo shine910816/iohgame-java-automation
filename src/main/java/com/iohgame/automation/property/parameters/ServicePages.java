@@ -8,6 +8,8 @@ public enum ServicePages implements OptionElement
 
     JIRA_DASHBOARD,
 
+    JIRA_CREATE_DEFAULT,
+
     JIRA_CREATE;
 
     @Override
