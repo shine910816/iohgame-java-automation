@@ -65,6 +65,18 @@ public abstract class BaseController<W extends PageWindow> extends MainClass imp
         }
     }
 
+    protected void sleep(long time)
+    {
+        try
+        {
+            Thread.sleep(time);
+        }
+        catch (InterruptedException e)
+        {
+            LOG.error(e.getMessage());
+        }
+    }
+
     protected List<SearchContext> getElementList(PageElement element)
     {
         List<SearchContext> result = new ArrayList<>();
@@ -182,6 +194,7 @@ public abstract class BaseController<W extends PageWindow> extends MainClass imp
         {
             return false;
         }
+        LOG.info(((WebElement) element).getTagName());
         ((WebElement) element).clear();
         return true;
     }

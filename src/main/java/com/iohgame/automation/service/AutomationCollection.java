@@ -24,6 +24,7 @@ public class AutomationCollection extends MainClass
         switch (page)
         {
             case JIRA_LOGIN:
+            case RAKUTEN_PAGE_TURN:
                 controller = (Optionable) m_factory.getController(page);
                 break;
 
@@ -48,14 +49,10 @@ public class AutomationCollection extends MainClass
         switch (page)
         {
             case JIRA_LOGIN:
-                controller = (Inputable) m_factory.getController(page);
-                break;
-
             case JIRA_CREATE_DEFAULT:
-                controller = (Inputable) m_factory.getController(page);
-                break;
-
             case JIRA_CREATE:
+            case RAKUTEN_LOGIN:
+            case NBA_THREAD_DETAIL:
                 controller = (Inputable) m_factory.getController(page);
                 break;
 

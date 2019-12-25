@@ -10,7 +10,13 @@ public enum ServicePages implements OptionElement
 
     JIRA_CREATE_DEFAULT,
 
-    JIRA_CREATE;
+    JIRA_CREATE,
+
+    RAKUTEN_LOGIN,
+
+    RAKUTEN_PAGE_TURN,
+
+    NBA_THREAD_DETAIL;
 
     @Override
     public String val()

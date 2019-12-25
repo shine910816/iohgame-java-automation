@@ -4,7 +4,7 @@ import com.iohgame.automation.property.LaunchBrowser;
 import com.iohgame.automation.property.LaunchBrowser.Browsers;
 import com.iohgame.automation.property.parameters.ServicePages;
 import com.iohgame.automation.service.AutomationCollection;
-import com.iohgame.automation.service.jira.JiraLoginController.JiraPageIndex;
+import com.iohgame.automation.service.rakuten.RakutenTurnPageController.RakutenPage;
 import com.iohgame.framework.utility.MainClass;
 import com.iohgame.framework.utility.Request;
 
@@ -21,11 +21,10 @@ public class App extends MainClass
 
     public void run()
     {
-        m_collection.turnPage(ServicePages.JIRA_LOGIN, JiraPageIndex.LOGIN);
-        m_collection.write(ServicePages.JIRA_LOGIN);
-        m_collection.turnPage(ServicePages.JIRA_LOGIN, JiraPageIndex.CREATE);
-        m_collection.write(ServicePages.JIRA_CREATE_DEFAULT);
-        m_collection.write(ServicePages.JIRA_CREATE);
+        m_collection.turnPage(ServicePages.RAKUTEN_PAGE_TURN, RakutenPage.LOGIN_PAGE);
+        m_collection.write(ServicePages.RAKUTEN_LOGIN);
+        m_collection.turnPage(ServicePages.RAKUTEN_PAGE_TURN, RakutenPage.NBA_THREAD_DETAIL);
+        m_collection.write(ServicePages.NBA_THREAD_DETAIL);
     }
 
     public static void main(String[] args)
